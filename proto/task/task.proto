@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package task;
+
+option go_package = "./proto/task;task";
+
+service Task {
+  rpc Create (CreateRequest) returns (CreateResponse) {}
+  rpc Update (UpdateRequest) returns (UpdateResponse) {}
+  rpc Delete (DeleteRequest) returns (DeleteResponse) {}
+  rpc Get (GetRequest) returns (GetResponse) {}
+  rpc List (ListRequest) returns (ListResponse) {}
+}
+
+message CreateRequest {
+  TaskData task = 1;
+}
+
+message CreateResponse {
+  string task_id = 1;
+}
+
+message UpdateRequest {
+  TaskData task = 1;
+}
+
+message UpdateResponse {
+  TaskData task = 1;
+}
+
+message DeleteRequest {
+  string task_id = 1;
+}
+
+message DeleteResponse {
+
+}
+
+message GetRequest {
+  string task_id = 1;
+}
+
+message GetResponse {
+  TaskData task = 1;
+}
+
+message ListRequest {
+  repeated int32 task_ids = 1;
+}
+
+message ListResponse {
+  repeated TaskData task = 1;
+}
+
+message TaskData {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  int32 assignee_id = 4;
+  string status = 5;
+}

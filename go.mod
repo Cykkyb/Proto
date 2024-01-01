@@ -1,4 +1,4 @@
-module github.com/Cykkyb/proto
+module github.com/cykkyb/proto
 
 go 1.20
 
